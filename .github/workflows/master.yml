@@ -26,6 +26,11 @@ jobs:
           path: ~/.npm
           key: v1-yarn-deps-${{ hashFiles('**/yarn.lock') }}
           restore-keys: v1-yarn-deps-
+      - name: Build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: node_modules
+          path: node_modules
 
   jest:
     runs-on: ubuntu-latest
