@@ -9,55 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [lts/*]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js lts/*
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: v1-yarn-deps-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: v1-yarn-deps-
-      - name: Build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: node_modules
-          path: node_modules
-
-  jest:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [lts/*]
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Tests
-        run: yarn test --watchAll=false
-
-  eslint:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [lts/*]
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
       - name: Eslint
         run: yarn run eslint
+      - name: Tests
+        run: yarn test --watchAll=false
