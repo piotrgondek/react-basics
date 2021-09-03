@@ -8,19 +8,16 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [lts/*]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js lts/*
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: lts/*
       - name: Install dependencies
         run: yarn install
-      - run: yarn test --watchAll=false
+      - name: Eslint
+        run: yarn run eslint
+      - name: Tests
+        run: yarn test --watchAll=false
