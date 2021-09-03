@@ -8,13 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [lts/*]
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
@@ -23,4 +20,29 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: yarn install
-      - run: yarn test --watchAll=false
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: v1-npm-deps-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: v1-npm-deps-
+
+  jest:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [lts/*]
+    needs: build
+    steps:
+      - name: Tests
+        run: yarn test --watchAll=false
+
+  eslint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [lts/*]
+    needs: build
+    steps:
+      - name: Eslint
+        run: yarn run eslint
