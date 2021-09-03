@@ -24,8 +24,8 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: v1-npm-deps-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: v1-npm-deps-
+          key: v1-yarn-deps-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: v1-yarn-deps-
 
   jest:
     runs-on: ubuntu-latest
@@ -34,6 +34,11 @@ jobs:
         node-version: [lts/*]
     needs: build
     steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Tests
         run: yarn test --watchAll=false
 
@@ -44,5 +49,10 @@ jobs:
         node-version: [lts/*]
     needs: build
     steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Eslint
         run: yarn run eslint
