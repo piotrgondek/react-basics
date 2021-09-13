@@ -3,13 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "5.14.1",
-    "@testing-library/react": "12.1.0",
-    "@testing-library/user-event": "13.2.1",
-    "@types/jest": "27.0.1",
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-angular": "13.1.0",
+    "@cypress/react": "5.10.0",
+    "@cypress/webpack-dev-server": "1.6.0",
+    "@types/cypress-image-snapshot": "3.1.6",
     "@types/node": "16.9.1",
     "@types/react": "17.0.20",
     "@types/react-dom": "17.0.9",
+    "@typescript-eslint/eslint-plugin": "4.31.0",
+    "@typescript-eslint/parser": "4.31.0",
+    "cypress": "8.3.1",
+    "cypress-image-snapshot": "4.0.1",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-plugin-cypress": "2.11.3",
+    "eslint-plugin-import": "2.24.2",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.25.1",
+    "eslint-plugin-react-hooks": "4.2.0",
+    "husky": "7.0.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "4.0.3",
@@ -19,10 +32,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "cypress run-ct",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "eslint": "eslint ./ --ext .js,.jsx,.ts,.tsx",
+    "eslint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "eslint-fix": "npm run eslint -- --fix"
   },
   "browserslist": {
@@ -36,19 +49,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@commitlint/cli": "13.1.0",
-    "@commitlint/config-angular": "13.1.0",
-    "@typescript-eslint/eslint-plugin": "4.31.0",
-    "@typescript-eslint/parser": "4.31.0",
-    "eslint": "7.32.0",
-    "eslint-config-airbnb": "18.2.1",
-    "eslint-plugin-import": "2.24.2",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-react": "7.25.1",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "husky": "7.0.2",
-    "semantic-release": "17.4.7"
   }
 }

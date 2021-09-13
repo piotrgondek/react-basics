@@ -7,6 +7,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'plugin:cypress/recommended',
     'airbnb',
   ],
   parser: '@typescript-eslint/parser',
@@ -27,6 +28,7 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'cypress',
   ],
   rules: {
     'import/extensions': [
