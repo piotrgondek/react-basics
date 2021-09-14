@@ -20,4 +20,10 @@ jobs:
       - name: Eslint
         run: yarn run eslint
       - name: Tests
-        run: yarn test --watchAll=false
+        run: yarn test
+      - name: Cypress artifacts
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: Cypress artifacts
+          path: cypress/*
