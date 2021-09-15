@@ -18,11 +18,12 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
-            
+
   eslint:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Eslint
         run: yarn run eslint
 
@@ -30,6 +31,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Tests
         run: yarn test
       - name: Cypress artifacts
