@@ -16,9 +16,10 @@ jobs:
         with:
           node-version: lts/*
           cache: 'yarn'
-      - name: Eslint
+      - name: Install
         run: yarn install
-      - run: yarn run eslint
+      - name: Eslint
+        run: yarn run eslint
 
   tests:
     runs-on: ubuntu-latest
@@ -29,9 +30,10 @@ jobs:
         with:
           node-version: lts/*
           cache: 'yarn'
-      - name: Tests
+      - name: Install
         run: yarn install
-      - run: yarn test
+      - name: Tests
+        run: yarn test
       - name: Cypress artifacts
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2
@@ -49,10 +51,11 @@ jobs:
         with:
           node-version: lts/*
           cache: 'yarn'
-      - name: Deploy
+      - name: Install
         run: yarn install
-      - run: |
+      - name: Deploy
+        run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          yarn run gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+          yarn run deploy
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
