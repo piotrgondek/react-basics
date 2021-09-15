@@ -18,12 +18,20 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install
+      - name: Node_modules artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: node_modules
+          path: node_modules/*
 
   eslint:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: node_modules
       - name: Eslint
         run: yarn run eslint
 
@@ -32,6 +40,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: node_modules
       - name: Tests
         run: yarn test
       - name: Cypress artifacts
