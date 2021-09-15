@@ -17,7 +17,7 @@ jobs:
           node-version: lts/*
           cache: 'yarn'
       - name: Eslint
-      - run: yarn install
+        run: yarn install
       - run: yarn run eslint
 
   tests:
@@ -30,7 +30,7 @@ jobs:
           node-version: lts/*
           cache: 'yarn'
       - name: Tests
-      - run: yarn install
+        run: yarn install
       - run: yarn test
       - name: Cypress artifacts
         if: ${{ failure() }}
@@ -50,7 +50,7 @@ jobs:
           node-version: lts/*
           cache: 'yarn'
       - name: Deploy
-      - run: yarn install
+        run: yarn install
       - run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           yarn run gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
