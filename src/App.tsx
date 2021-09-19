@@ -1,6 +1,6 @@
 import React from 'react';
+import { Button, CssBaseline } from '@mui/material';
 import './App.css';
-import { Button, CssBaseline } from '@material-ui/core';
 
 const App: React.FC = () => (
   <>
