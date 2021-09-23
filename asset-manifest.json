@@ -6,20 +6,20 @@
     "runtime-main.js": "/react-basics/static/js/runtime-main.7cd451ba.js",
     "runtime-main.js.map": "/react-basics/static/js/runtime-main.7cd451ba.js.map",
     "static/css/2.f663ce83.chunk.css": "/react-basics/static/css/2.f663ce83.chunk.css",
-    "static/js/2.d143221e.chunk.js": "/react-basics/static/js/2.d143221e.chunk.js",
-    "static/js/2.d143221e.chunk.js.map": "/react-basics/static/js/2.d143221e.chunk.js.map",
+    "static/js/2.cf0d7a1d.chunk.js": "/react-basics/static/js/2.cf0d7a1d.chunk.js",
+    "static/js/2.cf0d7a1d.chunk.js.map": "/react-basics/static/js/2.cf0d7a1d.chunk.js.map",
     "static/js/3.48faddc5.chunk.js": "/react-basics/static/js/3.48faddc5.chunk.js",
     "static/js/3.48faddc5.chunk.js.map": "/react-basics/static/js/3.48faddc5.chunk.js.map",
     "index.html": "/react-basics/index.html",
     "static/css/2.f663ce83.chunk.css.map": "/react-basics/static/css/2.f663ce83.chunk.css.map",
     "static/css/main.bab0b925.chunk.css.map": "/react-basics/static/css/main.bab0b925.chunk.css.map",
-    "static/js/2.d143221e.chunk.js.LICENSE.txt": "/react-basics/static/js/2.d143221e.chunk.js.LICENSE.txt",
+    "static/js/2.cf0d7a1d.chunk.js.LICENSE.txt": "/react-basics/static/js/2.cf0d7a1d.chunk.js.LICENSE.txt",
     "static/media/index.css": "/react-basics/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.7cd451ba.js",
     "static/css/2.f663ce83.chunk.css",
-    "static/js/2.d143221e.chunk.js",
+    "static/js/2.cf0d7a1d.chunk.js",
     "static/css/main.bab0b925.chunk.css",
     "static/js/main.c4ffb96f.chunk.js"
   ]
