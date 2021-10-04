@@ -15,11 +15,6 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands';
-import '../../src/index.css';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-before(() => {
-  cy.document().its('fonts.status').should('equal', 'loaded');
-});
