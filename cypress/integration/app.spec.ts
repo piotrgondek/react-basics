@@ -13,10 +13,9 @@ describe('App', () => {
 
       cy.document().its('fonts.status').should('equal', 'loaded');
 
-      cy.matchImageSnapshot(`[${viewport}] Whole page`,
-        {
-          capture: 'fullPage',
-        });
+      cy.matchImageSnapshot(`[${viewport}] Whole page`, {
+        capture: 'fullPage',
+      });
     });
   });
 });
